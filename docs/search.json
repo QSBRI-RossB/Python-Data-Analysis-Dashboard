@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "s&p.html",
+    "href": "s&p.html",
+    "title": "S&P 500",
+    "section": "",
+    "text": "S&P500 since year 2000, see Figure 1.\n\n\nCode\nimport pandas as pd\nimport plotly.graph_objs as go\n\n# URL of the raw CSV file from GitHub\nurl = 'https://raw.githubusercontent.com/martingeew/finance_dashboard_demo/main/sp500_20240825.csv'\n\n# Read the CSV file into a DataFrame\ndf = pd.read_csv(url, index_col=0) \n\n\ndef plot_daily(df):\n    fig = go.Figure()\n    fig.add_trace(\n        go.Scatter(\n            x=df.index,\n            y=df[\"close\"],\n            mode=\"lines\",\n            name=\"S&P 500 Close\",\n            hovertemplate=\"%{x|%Y-%m-%d}&lt;br&gt;Close: %{y:.2f}&lt;extra&gt;&lt;/extra&gt;\",\n        )\n    )\n\n    fig.update_layout(\n        title=\"Daily S&P 500 Closing value\",\n        xaxis_title=\"\",\n        yaxis_title=\"\",\n        template=\"plotly_dark\",  # Use the dark mode template\n    )\n\n    fig.show()\n\n\nplot_daily(df)\n\n\n\n\n                                                \n\n\nFigure 1: S&P500Source: Alpha Vantage"
+  }
+]
