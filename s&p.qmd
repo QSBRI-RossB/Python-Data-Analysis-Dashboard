@@ -5,7 +5,7 @@ format:
     code-fold: true
 jupyter: python3
 ---
-
+Test test
 S&P500 since year 2000, see @fig-sp.
 
 ```{python}
@@ -48,14 +48,17 @@ plot_daily(df)
 ```
 
 Above is the example plot from https://read.readwise.io/read/01jv88nrd5eng7q8j4sb9t20j2
-For awhile quarto would not work as for some reason jupyter could not find the python 3 installation on path???
-Below I have attempted to do my own graph from a previous project. The end goal is to have a dashboard where one can:
+For awhile quarto would not work as for some reason jupyter could not find<br>the python 3 installation on path???
+Below I have attempted to do my own graph from a previous project @mid-temp.<br> The end goal is to have a dashboard where one can:
 - Select files to view on the provided graphs
-- Provide a visual list of said files in a given directory and have them be interactable like the point above ^^^
-- Provide a page or comparison selection that variables from two data sets can be compared on a single graph
-- Have the graphs at least marginally editable such that a user can change axes limits, titles, decimal points, etc.
+- Provide a visual list of said files in a given directory<br>and have them be interactable like the point above ^^^
+- Provide a page or comparison selection that variables<br>from two data sets can be compared on a single graph
+- Have the graphs at least marginally editable such<br>that a user can change axes limits, titles, decimal points, etc.
 
 ```{python}
+#| label: mid-temp
+#| fig-cap: "S&P500<br>Source: Alpha Vantage"
+
 import os
 import pandas as pd
 import plotly.graph_objs as go
@@ -98,8 +101,6 @@ file = files[6]
 temp_data = pd.read_csv(os.path.join(folder_path,file))
 
 plot_mid_temp(temp_data)
-
-
 
 
 ```
