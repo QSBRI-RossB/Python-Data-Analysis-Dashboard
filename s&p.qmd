@@ -46,3 +46,55 @@ def plot_daily(df):
 
 plot_daily(df)
 ```
+
+Above is the example plot from https://read.readwise.io/read/01jv88nrd5eng7q8j4sb9t20j2
+For awhile quarto would not work as for some reason jupyter could not find the python 3 installation on path???
+Below I have attempted to do my own graph from a previous project. The end goal is to have a dashboard where one can:
+- Select files to view on the provided graphs
+- Provide a visual list of said files in a given directory and have them be interactable like the point above ^^^
+- Provide a page or comparison selection that variables from two data sets can be compared on a single graph
+- Have the graphs at least marginally editable such that a user can change axes limits, titles, decimal points, etc.
+
+```{python}
+import os
+import pandas as pd
+
+def plot_mid_temp(df)
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=data.index,
+            y=df["close"],
+            mode="lines",
+            name="S&P 500 Close",
+            hovertemplate="%{x|%Y-%m-%d}<br>Close: %{y:.2f}<extra></extra>",
+        )
+    )
+
+    fig.update_layout(
+        title="Daily S&P 500 Closing value",
+        xaxis_title="",
+        yaxis_title="",
+        template="plotly_dark",  # Use the dark mode template
+    )
+
+    fig.show()
+
+
+onedrive_path=r'C:\Users\royin\OneDrive - QSBRI inc (1)'
+stash_direc=r'Documents - QSBRI Home\017 Stash Energy\\'
+sensitivity_direc=r'017 Stash Energy 1D Model\PCM Sensitivity analysis'
+sensitivity_path=os.path.join(onedrive_path,stash_direc,sensitivity_direc)
+
+folders = os.listdir(sensitivity_path)
+
+folder_path = os.path.join(sensitivity_path,folders[0])
+files = os.listdir(folder_path)
+file = files[6]
+
+temp_data = pd.read_csv(os.path.join(folder_path,file_dir[6]))
+
+
+
+
+```
